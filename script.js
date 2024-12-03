@@ -87,9 +87,10 @@ const produtos = [
     { id: 86, nome: 'Chocolate com Castanhas 250g - Garoto', validade: 9, valor: 14.00 }
 ];
 
-let idListaGlobal = 6; // Contador global para ID de listas
+let idListaGlobal = parseInt(document.querySelector('#id_lista').value); // Contador global para ID de listas
 
 document.getElementById("gerar-pedido").addEventListener("click", () => {
+    idListaGlobal = parseInt(document.querySelector('#id_lista').value); // Contador global para ID de listas
     const idCliente = parseInt(document.getElementById("id_cliente").value);
     const idConsultor = parseInt(document.getElementById("id_consultor").value);
 
@@ -150,4 +151,6 @@ document.getElementById("gerar-pedido").addEventListener("click", () => {
     // Mostrar o SQL gerado na pré-visualização
     const sqlPreview = document.getElementById("sql-preview");
     sqlPreview.textContent = sqlCommands.join("\n");
+
+    document.querySelector('#id_lista').value = idListaGlobal
 });
